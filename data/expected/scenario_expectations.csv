@@ -1,1 +1,13 @@
-
+scenario_id,scenario,expected_outcome
+S01,Exact match,RESOLVED
+S02,Street abbreviation,RESOLVED
+S03,Road abbreviation,RESOLVED
+S04,Address prefix cleanup,RESOLVED
+S05,Secondary identifier missing,PARTIAL_MATCH
+S06,Primary identifier missing,PARTIAL_MATCH
+S07,No identifiers found,MANUAL_REVIEW
+S08,Inactive secondary identifier,MANUAL_REVIEW
+S09,Ended account,ACCOUNT_ENDED
+S10,Special account category,NO_ACTION
+S11,Multiple identifiers,RESOLVED
+S12,Unresolved exception,MANUAL_REVIEW
