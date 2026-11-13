@@ -7,8 +7,6 @@ into a production-style Python and Databricks pipeline.
 ## Project Goals
 
 This project demonstrates:
-```mermaid
-flowchart TD
 
 - Python data engineering
 - PySpark transformations
@@ -34,7 +32,6 @@ Synthetic Input
 → Audit
 → Quality Gates
 → Excel Output
-```
 
 ## Synthetic Data
 
