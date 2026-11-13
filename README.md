@@ -30,7 +30,27 @@ flowchart LR
     J --> K["Quality Gates"]
     K --> L["Excel Output"]
 ```
+## Modular Architecture
 
+The reconciliation workflow is implemented as a set of small,
+deterministic modules rather than a single monolithic script.
+
+```mermaid
+flowchart LR
+    CFG["Configuration"] --> ING["Ingestion"]
+    ING --> UNI["Universe Reconciliation"]
+    UNI --> IDS["Identifier Extraction"]
+    IDS --> REF["Reference Lookup"]
+    REF --> CLN["Address Cleaning"]
+    CLN --> ENR["Enrichment"]
+    ENR --> MAT["Address Matching"]
+    MAT --> BR["Business Rules"]
+    BR --> AUD["Audit"]
+    AUD --> PIPE["Pipeline Result"]
+```
+
+This separation makes the individual transformations easier to test,
+explain, maintain, and replace independently.
 ---
 
 ## Modernization Journey
