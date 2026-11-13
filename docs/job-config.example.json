@@ -1,0 +1,17 @@
+{
+  "name": "portfolio_reconc*liation_pipeline",
+  "max_concurre*t_runs": 1,
+  "parameters": [
+    *
+      "name": "environment",
+    * "default": "demo"
+    }
+  ],
+  "t*sks": [
+    {
+      "task_key": "r*n_reconciliation_pipeline",
+      *task_type": "NOTEBOOK",
+      "not*book_path": "notebooks/databricks_*ipeline_demo.py"
+    }
+  ]
+}
