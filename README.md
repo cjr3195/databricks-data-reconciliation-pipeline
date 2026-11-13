@@ -185,6 +185,37 @@ flowchart TD
     K --> L["Final Artifact Valid"]
 ```
 
+## Test Strategy
+
+The project combines function-level unit tests with end-to-end
+scenario validation.
+
+```mermaid
+flowchart TD
+    A["Synthetic Test Fixtures"] --> B["Unit Tests"]
+    A --> C["Pipeline Integration Test"]
+    A --> D["Scenario Expectations"]
+
+    B --> E["Address Cleaning"]
+    B --> F["Address Matching"]
+    B --> G["Business Rules"]
+
+    C --> H["Row Reconciliation"]
+    C --> I["Reference Reconciliation"]
+
+    D --> J["Expected vs Actual Outcomes"]
+
+    E --> K["Quality Gate Result"]
+    F --> K
+    G --> K
+    H --> K
+    I --> K
+    J --> K
+```
+
+The pipeline fails explicitly when a quality gate does not reconcile,
+rather than producing a silently incomplete output.
+
 Failures should identify the pipeline stage where reconciliation
 broke rather than silently producing an incomplete report.
 
@@ -242,8 +273,9 @@ databricks-data-reconciliation-pipeline/
 - [x] Synthetic data model
 - [x] Controlled reconciliation scenarios
 - [x] Synthetic data generator
-- [ ] Modular pipeline
-- [ ] Automated quality gates
+- [x] Modular pipeline
+- [x] Automated quality gates
+- [x] Unit and integration tests
 - [ ] Excel reporting
 - [ ] Databricks workflow demo
 - [ ] Portfolio case study
