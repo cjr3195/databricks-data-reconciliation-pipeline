@@ -38,6 +38,10 @@ def build_identifier_summary(
                     for value in values
                 ),
             ),
+            reference_address=(
+                "clean_reference_address",
+                "first",
+            ),
         )
     )
 
