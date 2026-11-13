@@ -307,7 +307,7 @@ databricks-data-reconciliation-pipeline/
 - [x] Modular pipeline
 - [x] Automated quality gates
 - [x] Unit and integration tests
-- [ ] Excel reporting
+- [x] Excel reporting
 - [ ] Databricks workflow demo
 - [ ] Portfolio case study
 
