@@ -212,6 +212,37 @@ flowchart TD
     I --> K
     J --> K
 ```
+## Excel Delivery
+
+The spreadsheet is treated as a delivery artifact rather than the
+execution engine.
+
+```mermaid
+flowchart LR
+    A["Validated Pipeline Results"] --> B["Account Results"]
+    A --> C["Identifier Audit"]
+    A --> D["Audit Summary"]
+    A --> E["Quality Gates"]
+    A --> F["Run Summary"]
+
+    B --> G["reconciliation_report.xlsx"]
+    C --> G
+    D --> G
+    E --> G
+    F --> G
+```
+
+The generated workbook contains five analyst-facing sheets:
+
+1. `Account Results`
+2. `Identifier Audit`
+3. `Audit Summary`
+4. `Quality Gates`
+5. `Run Summary`
+
+The output is validated after creation to ensure that the workbook
+exists, contains the required sheets, and preserves the expected
+number of account records.
 
 The pipeline fails explicitly when a quality gate does not reconcile,
 rather than producing a silently incomplete output.
