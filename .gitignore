@@ -1,1 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
 
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Local generated output
+output/*.xlsx
+output/*.xlsm
+output/*.csv
+
+# Databricks local artifacts
+.databricks/
+
+# Temporary Excel files
+~$*.xlsx
+~$*.xlsm
