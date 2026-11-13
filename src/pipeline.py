@@ -10,10 +10,15 @@ from src.audit import (
 from src.business_rules import (
     determine_outcome,
 )
+
+from src.excel_output import (
+    export_reconciliation_report,
+)
 from src.config import (
     ACCOUNT_EXPECTATIONS_FILE,
     EXPECTATIONS_FILE,
     INPUT_FILE,
+    OUTPUT_FILE,
     ORGANIZATIONS_SHEET,
     PROFESSIONALS_SHEET,
     REGISTRY_FILE,
@@ -277,6 +282,90 @@ def run_pipeline() -> dict:
     )
 
     # =====================================================
+    # 13 - EXCEL OUTPUT
+    # =====================================================
+    
+    output = export_reconciliation_report(
+        pipeline_result={
+            "status":
+                "SUCCESS",
+    
+            "organizations":
+                len(organizations),
+    
+            "professionals":
+                len(professionals),
+    
+            "accounts":
+                len(accounts),
+    
+            "universe_matches":
+                int(
+                    accounts[
+                        "universe_found"
+                    ]
+                    .fillna(False)
+                    .sum()
+                ),
+    
+            "identifiers":
+                len(identifiers),
+    
+            "identifier_matches":
+                int(
+                    reconciled[
+                        "registry_found"
+                    ]
+                    .fillna(False)
+                    .sum()
+                ),
+    
+            "address_matches":
+                int(
+                    results[
+                        "address_match"
+                    ]
+                    .fillna(False)
+                    .sum()
+                ),
+    
+            "manual_review":
+                int(
+                    (
+                        results["outcome"]
+                        == "MANUAL_REVIEW"
+                    ).sum()
+                ),
+    
+            "quality_status":
+                quality["status"],
+    
+            "quality_checks":
+                quality[
+                    "quality_checks"
+                ],
+    
+            "failed_checks":
+                quality[
+                    "failed_checks"
+                ],
+    
+            "results":
+                results,
+    
+            "identifier_audit":
+                reconciled,
+    
+            "audit_summary":
+                audit_summary,
+    
+            "quality_details":
+                quality["checks"],
+        },
+        output_path=OUTPUT_FILE,
+    )
+
+    # =====================================================
     # SUMMARY METRICS
     # =====================================================
 
@@ -309,61 +398,68 @@ def run_pipeline() -> dict:
     # PIPELINE RESULT
     # =====================================================
 
-    return {
+    pipeline_result = {
         "status":
             "SUCCESS",
-
+    
         "organizations":
             len(organizations),
-
+    
         "professionals":
             len(professionals),
-
+    
         "accounts":
             len(accounts),
-
+    
         "universe_matches":
             universe_matches,
-
+    
         "identifiers":
             len(identifiers),
-
+    
         "identifier_matches":
             identifier_matches,
-
+    
         "address_matches":
             address_matches,
-
+    
         "manual_review":
             manual_review,
-
+    
         "quality_status":
             quality["status"],
-
+    
         "quality_checks":
             quality[
                 "quality_checks"
             ],
-
+    
         "failed_checks":
             quality[
                 "failed_checks"
             ],
-
-        # Detailed pipeline artifacts
+    
         "results":
             results,
-
+    
         "identifier_audit":
             reconciled,
-
+    
         "audit_summary":
             audit_summary,
-
+    
         "quality_details":
             quality["checks"],
     }
 
+    output = export_reconciliation_report(
+    pipeline_result=pipeline_result,
+    output_path=OUTPUT_FILE,
+    )
+
+    pipeline_result["output"] = output
+
+    return pipeline_result
 
 def _build_console_summary(
     result: dict,
