@@ -1,1 +1,19 @@
-
+account_id,account_name,primary_identifier,secondary_identifier,identifier_status,canonical_address,account_category,account_end_status,last_activity_date,distribution_method,parent_contract
+ORG-1001,Northwind Community Center,PRI-U001,SEC-H001,ACTIVE,100 Innovation Way,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 01
+ORG-1002,Contoso Specialty Clinic,PRI-U002,SEC-H002,ACTIVE,245 Northwind Street,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 02
+ORG-1003,Fabrikam Regional Center,PRI-U003,SEC-H003,ACTIVE,800 Cloud Road,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 03
+ORG-1004,Adventure Works Medical Group,PRI-U004,SEC-H004,ACTIVE,55 Analytics Avenue,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 04
+ORG-1005,Blue Yonder Wellness Center,PRI-U005,SEC-H005,ACTIVE,720 Lakeview Boulevard,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 05
+ORG-1006,Woodgrove Care Network,PRI-U006,SEC-H006,ACTIVE,310 Data Drive,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 06
+ORG-1007,Alpine Health Services,PRI-U007,SEC-H007,ACTIVE,410 Summit Lane,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 07
+ORG-1009,Fourth Coffee Community Clinic,PRI-U008,SEC-H008,ACTIVE,900 Legacy Court,STANDARD,ENDED,2026-10-31,DIRECT,Synthetic Contract 08
+ORG-1010,Tailspin Health Group,PRI-U009,SEC-H009,ACTIVE,88 Community Place,SPECIAL,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 09
+ORG-1011,Litware Regional Services,PRI-U010;PRI-U111,SEC-H010,ACTIVE,120 Multiple Ave,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 10
+PRO-2001,Alex Morgan,PRI-U011,SEC-H011,ACTIVE,100 Innovation Way,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 11
+PRO-2002,Taylor Quinn,PRI-U012,SEC-H012,ACTIVE,245 Northwind St,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 12
+PRO-2004,Jordan Reed,PRI-U013,SEC-H013,ACTIVE,55 Analytics Ave,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 13
+PRO-2006,Casey Blake,PRI-U014,SEC-H014,ACTIVE,310 Data Dr,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 14
+PRO-2008,Morgan Ellis,PRI-U015,SEC-H015,INACTIVE,700 Archive Road,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 15
+PRO-2010,Riley Morgan,PRI-U016,SEC-H016,ACTIVE,88 Community Pl,SPECIAL,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 16
+PRO-2011,Avery Brooks,PRI-U017,SEC-H017;SEC-H117,ACTIVE,120 Multiple Avenue,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 17
+PRO-2012,Cameron Lee,PRI-U018,SEC-H018,ACTIVE,999 Review Drive,STANDARD,ACTIVE,2026-10-31,DIRECT,Synthetic Contract 18
