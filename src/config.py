@@ -18,6 +18,11 @@ INPUT_FILE = (
     / "weekly_accounts_report.xlsx"
 )
 
+OUTPUT_FILE = (
+    OUTPUT_DIR
+    / "reconciliation_report.xlsx"
+)
+
 UNIVERSE_FILE = (
     REFERENCE_DIR
     / "account_universe.csv"
