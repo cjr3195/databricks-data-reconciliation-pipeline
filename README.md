@@ -33,6 +33,28 @@ Synthetic Input
 → Quality Gates
 → Excel Output
 
+## Synthetic Data
+
+The repository uses a fully synthetic data model designed to
+reproduce common enterprise reconciliation challenges without
+exposing proprietary information.
+
+```mermaid
+flowchart TD
+    A[Weekly Report] -->|account_id| B[Account Universe]
+    B -->|primary identifiers| C[Identifier Registry]
+    B -->|secondary identifiers| C
+    C --> D[Cleaned Reference Data]
+    D --> E[Reconciliation Results]
+```
+
+The sample data includes deterministic scenarios for exact matches,
+partial matches, missing reference records, address normalization,
+inactive identifiers, ended accounts, and manual-review exceptions.
+
+All company names, people, identifiers, addresses, and business
+scenarios in this repository are fictional.
+
 ## Data
 
 All datasets in this repository are synthetic and were created
