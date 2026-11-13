@@ -28,6 +28,10 @@ from src.universe import (
     enrich_with_universe,
     load_universe,
 )
+from src.address_matching import (
+    address_match_score,
+    addresses_match,
+)
 
 
 def run_pipeline():
@@ -75,6 +79,26 @@ def run_pipeline():
         enrich_accounts_with_registry(
             accounts,
             identifier_summary,
+        )
+    )
+
+    results["address_match_score"] = (
+    results.apply(
+        lambda row: address_match_score(
+            row.get("address"),
+            row.get("reference_address"),
+        ),
+        axis=1,
+        )
+    )
+
+    results["address_match"] = (
+        results.apply(
+            lambda row: addresses_match(
+                row.get("address"),
+                row.get("reference_address"),
+            ),
+            axis=1,
         )
     )
 
@@ -159,6 +183,13 @@ def run_pipeline():
                 ].sum()
             ),
 
+        "address_matches":
+            int(
+                results[
+                    "address_match"
+                ].sum()
+            ),
+        
         "manual_review":
             int(
                 (
