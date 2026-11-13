@@ -33,6 +33,10 @@ EXPECTATIONS_FILE = (
     / "scenario_expectations.csv"
 )
 
+ACCOUNT_EXPECTATIONS_FILE = (
+    EXPECTED_DIR
+    / "account_expectations.csv"
+)
 
 ORGANIZATIONS_SHEET = "ORGANIZATIONS"
 PROFESSIONALS_SHEET = "PROFESSIONALS"
