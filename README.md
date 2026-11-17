@@ -59,9 +59,9 @@ explain, maintain, and replace independently.
 flowchart LR
     A["Spreadsheet Workflow"] --> B["Python Automation"]
     B --> C["Modular Pipeline"]
-    C --> D["PySpark Processing"]
-    D --> E["Databricks Job"]
-    E --> F["Auditable Output"]
+    C --> D["Quality Engineering"]
+    D --> E["Databricks Orchestration"]
+    E --> F["Auditable Delivery"]
 ```
 
 The objective is not merely to automate Excel operations. The
@@ -252,6 +252,42 @@ broke rather than silently producing an incomplete report.
 
 ---
 
+# Databricks Orchestration
+
+The same deterministic pipeline can be executed through a lightweight
+Databricks notebook entrypoint and orchestrated as a parameterized job.
+
+```mermaid
+flowchart LR
+    GH["GitHub"] --> DBX["Databricks"]
+    DBX -->JOB["Lakeflow Job"]
+    JOB --> PARAM["Runtime Parameters"]
+    PARAMS--> NOTE["Notebook Entrypoint"]
+    NOTE --> PIPE["Modular Python Pipeline"]
+    PIPE --> QG{"Quality Gates"}
+    QG -->|Pass| OUT["Excel Output"]
+    QG -->|Fail| ERR["Job Failure"]
+```
+
+The Databricks notebook contains orchestration logic only. Data
+transformations and business rules remain in `src/`, which keeps the
+processing layer independently testable.
+
+### Job Contract
+
+A successful execution requires:
+
+```text
+status = SUCCESS
+failed_checks 0
+```
+
+Otherwise the notebook raises an exception so that the workflow is
+reported as failed.
+
+See [`docs/databricks-deployment.md`](docs/databricks-deployment.md)
+for the deployment design.
+
 ## Repository Structure
 
 ```text
@@ -305,10 +341,10 @@ databricks-data-reconciliation-pipeline/
 - [x] Controlled reconciliation scenarios
 - [x] Synthetic data generator
 - [x] Modular pipeline
-- [x] Automated quality gates
-- [x] Unit and integration tests
+- [x] Automated quality gates - [x] Unit and integration tests
 - [x] Excel reporting
-- [ ] Databricks workflow demo
+- [x] Databricks workflow design
+- [x] Parameterized notebook entrypoint
 - [ ] Portfolio case study
 
 ---
